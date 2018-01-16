@@ -2,6 +2,8 @@
 
 import Control.Monad.Trans.State.Strict (State, get, put, evalState)
 import Control.Monad (replicateM)
+import Data.Version (showVersion)
+import Paths_singleLocusSim (version)
 import System.Random (StdGen, random, mkStdGen)
 import Turtle
 
@@ -27,6 +29,7 @@ cmdOptParser = CmdOpts <$> parseInitialAlleleCount <*> parsePopSize <*>
 
 main :: IO ()
 main = do
+    err . unsafeTextToLine $ format ("SingleLocusSim version "%w) (showVersion version)
     CmdOpts x0 n s nIt seed <- options "single locus simulation tool"
         cmdOptParser
     let results = evalState (replicateM nIt (runSingleIt n s x0))

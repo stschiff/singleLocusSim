@@ -6,7 +6,6 @@ version:             0.1.0.0
 -- synopsis:
 -- description:
 license:             GPL-3
-license-file:        LICENSE
 author:              Stephan Schiffels
 maintainer:          schiffels_schiffels@mac.com
 -- copyright:
@@ -16,7 +15,7 @@ cabal-version:       >=1.10
 
 executable singleLocusSim
   main-is:             Main.hs
-  -- other-modules:
+  other-modules:       Paths_singleLocusSim
   build-depends:       base, turtle, transformers, random
   -- hs-source-dirs:
   default-language:    Haskell2010
